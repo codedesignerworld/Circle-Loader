@@ -1,0 +1,73 @@
+:root {
+  --background: white;
+  --foreground: red;
+}
+
+.loader {
+  --size: 5em;
+  display: inline-block;
+  width: var(--size);
+}
+.loader svg {
+  display: block;
+  transform: rotateZ(0deg);
+}
+.loader circle {
+  stroke: currentcolor;
+  stroke-width: 5px;
+  r: 9.5px;
+  stroke-dasharray: 0.01px, 59.6802604165px;
+  stroke-dashoffset: 0;
+  animation: 1.8s cubic-bezier(0.3, 0.8, 0.1, 1) infinite go;
+}
+
+@keyframes go {
+  0% {
+    stroke-dasharray: 0.01px, 59.6802604165px;
+    stroke-dashoffset: 0;
+  }
+  25% {
+    stroke-dasharray: 29.8451302083px, 29.8451302083px;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 0.01px, 59.6802604165px;
+    stroke-dashoffset: -29.8451302083px;
+  }
+  75% {
+    stroke-dasharray: 29.8451302083px, 29.8451302083px;
+    stroke-dashoffset: -29.8451302083px;
+  }
+  100% {
+    stroke-dasharray: 0.01px, 59.6802604165px;
+    stroke-dashoffset: -59.6902604165px;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+*,
+:before,
+:after {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1.375;
+}
